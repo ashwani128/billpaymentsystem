@@ -1,0 +1,62 @@
+<h1>
+    {{fName}}
+    {{lName}}
+    {{gender}}
+</h1>
+<hr>
+First Name : <input type="text" name="fName" [(ngModel)]="fName" /><br />
+Last Name : <input type="text" name="fName" [(ngModel)]="lName" /><br />
+Age : <input type="text" name="fName" [(ngModel)]="age" /><br />
+isEmployeed : <input type="text" name="fName" [(ngModel)]="isEmployeed" /><br />
+Gender :
+<input type="radio" [(ngModel)]="gender" value="Male" />Male
+<input type="radio" [(ngModel)]="gender" value="Female" />Female
+
+<hr>
+<div>
+    <div [style.color]="color">{{marks}}</div>
+
+</div>
+
+<hr>
+<div>
+    <div [ngClass]="myClass">{{marks}}</div>
+
+</div>
+
+<hr>
+<div>
+    <div *ngIf="b" [ngClass]="myClass">Congratulations</div>
+    <div *ngIf="!b" [ngClass]="myClass">Better Luck Next Time</div>
+</div>
+
+<hr>
+
+<div>
+    <select [(ngModel)]="country">
+        <option>India</option>
+        <option>Japan</option>
+        <option>China</option>
+        <option>Russia</option>
+        <option>China</option>
+        <option>France</option>
+    </select>
+
+    <div [ngSwitch]="country">
+        <p *ngSwitchCase="'India'">India Details Is here</p>
+        <p *ngSwitchCase="'Japan'">Japan Details Is here</p>
+        <p *ngSwitchCase="'China'">China Details Is here</p>
+        <p *ngSwitchCase="'Russia'">Russia Details Is here</p>
+        <p *ngSwitchCase="'China'">China Details Is here</p>
+        <p *ngSwitchCase="'France'">France Details Is here</p>
+    </div>
+</div>
+<hr>
+<div>
+    <div>
+        <ul>
+            <li *ngFor= "let city of cities"> {{city}}  </li>
+        </ul>
+
+    </div>
+</div>
