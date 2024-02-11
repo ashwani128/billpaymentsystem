@@ -1,4 +1,4 @@
-<h1>
+<!-- <h1>
     {{fName}}
     {{lName}}
     {{gender}}
@@ -55,8 +55,59 @@ Gender :
 <div>
     <div>
         <ul>
-            <li *ngFor= "let city of cities"> {{city}}  </li>
+            <li *ngFor="let city of cities"> {{city}} </li>
         </ul>
 
     </div>
+</div> -->
+<hr>
+<div>
+    <h4>ngFor with object</h4>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Action</th> <!-- Added a new header for the action column -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employee; let i=index">
+                <td>{{emp.empId}}</td>
+                <td>{{emp.empName}}</td>
+                <td>{{emp.salary}}</td>
+                <td>
+                    <button type="button" class="button" (click)="onClickDelete(i)">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" [(ngModel)]="newEmployee.empId" placeholder="empid"></td>
+                <td><input type="text" [(ngModel)]="newEmployee.empName" placeholder="empName"></td>
+                <td><input type="text" [(ngModel)]="newEmployee.salary" placeholder="empSalary"></td>
+                <td>
+                    <button type="button" class="button" (click)="onClickInsert()">Insert</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Using pipes -->
+<div>
+   City: {{city}}<br>
+   Salary: {{newSalary}}<br>
+   TDS: {{tds}}<br>
+   person: {{person}}<br>
+   Date: {{dt}}<br>
+
+   City in uppercase: {{city | uppercase}}<br>
+   Salary in usd: {{newSalary | currency:"USD"}}<br>
+   Salary in ind: {{newSalary | currency:"INR"}}<br>
+   TDS: {{tds}}<br>
+   person: {{person}}<br>
+   Date short: {{dt | date:"shortDate"}}<br>
+   Date medium 1: {{dt | date:"mediumDate"}}<br>
+   Date Medium 2: {{dt | date:"medium"}}<br>
+   Date format: {{dt | date:"d/M/y"}}<br>
 </div>
